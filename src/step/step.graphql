@@ -1,0 +1,25 @@
+type Step {
+  id: Int!
+  question: String!
+}
+
+input CreateStepInput {
+  question: String!
+  cardId: Int!
+}
+
+input UpdateStepInput {
+  id: Int!
+  question: String!
+}
+
+type Query {
+  steps: [Step]!
+  step(id: Int!): Step
+}
+
+type Mutation {
+  createStep(createStepInput: CreateStepInput!): Step!
+  updateStep(updateStepInput: UpdateStepInput!): Step!
+  removeStep(id: Int!): Step
+}
